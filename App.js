@@ -4,13 +4,25 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppLoading from "expo-app-loading";
 
 import * as Font from "expo-font";
-import Authen from "./src/screens/Authen";
-import Cart from "./src/screens/Cart";
 import Checkout from "./src/screens/Checkout";
-import CheckoutInfo from "./src/screens/CheckoutInfo";
 import Failed from "./src/screens/Failed";
 import Sucess from "./src/screens/Sucess";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { NativeBaseProvider } from "native-base";
+
+import { StyleSheet, Platform, StatusBar, Dimensions } from "react-native";
+import InsertCard from "./src/screens/InsertCard";
+import CardInformation from "./src/screens/CardInformation";
+
+export const height = Dimensions.get("window").height;
+export const width = Dimensions.get("window").width;
+
+export const globalStyles = StyleSheet.create({
+  AndroidSafeArea: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+});
 
 const Stack = createNativeStackNavigator();
 
@@ -18,21 +30,37 @@ function App() {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   if (!isLoadingComplete) {
     return (
-      <AppLoading
-        startAsync={loadResourcesAsync}
-        onError={handleLoadingError}
-        onFinish={() => handleFinishLoading(setLoadingComplete)}
-      />
+      <NativeBaseProvider>
+        <AppLoading
+          startAsync={loadResourcesAsync}
+          onError={handleLoadingError}
+          onFinish={() => handleFinishLoading(setLoadingComplete)}
+        />
+      </NativeBaseProvider>
     );
   } else {
     return isLoadingComplete ? (
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <NativeBaseProvider>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Cart" component={Cart}></Stack.Screen>
+            <Stack.Screen
+              name="checkout"
+              component={Checkout}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="insertCard"
+              component={InsertCard}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              name="cardInformation"
+              component={CardInformation}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
-      </GestureHandlerRootView>
+      </NativeBaseProvider>
     ) : (
       <AppLoading />
     );
@@ -41,10 +69,9 @@ function App() {
 async function loadResourcesAsync() {
   await Promise.all([
     Font.loadAsync({
-      "roboto-700": require("./src/assets/fonts/roboto-700.ttf"),
-      "roboto-regular": require("./src/assets/fonts/roboto-regular.ttf"),
-      "adamina-regular": require("./src/assets/fonts/adamina-regular.ttf"),
-      "aclonica-regular": require("./src/assets/fonts/aclonica-regular.ttf"),
+      "josefinsans-medium": require("./src/assets/fonts/JosefinSans-Medium.ttf"),
+      "josefinsans-regular": require("./src/assets/fonts/JosefinSans-Regular.ttf"),
+      "itim-regular": require("./src/assets/fonts/Itim-Regular.ttf"),
     }),
   ]);
 }

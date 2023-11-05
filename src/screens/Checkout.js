@@ -42,7 +42,6 @@ function Checkout({ navigation }) {
       >
         <Center flexDirection={"row"} h={"100%"}>
           <TextNB
-            marginLeft={5}
             fontSize={24}
             color={"white"}
             fontWeight={"bold"}
@@ -61,18 +60,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textTotalAmount: {
-    fontFamily: "itim-regular",
+    fontFamily: "itim",
     fontSize: 18,
     fontWeight: "400",
   },
   textTitle: {
-    fontFamily: "itim-regular",
+    fontFamily: "itim",
     color: "#121212",
     fontSize: 30,
     marginTop: 30,
   },
   textHeader: {
-    fontFamily: "adamina-regular",
+    fontFamily: "itim",
     color: "#121212",
     marginLeft: 16,
     fontSize: 30,

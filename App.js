@@ -6,12 +6,13 @@ import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import Checkout from "./src/screens/Checkout";
 import Failed from "./src/screens/Failed";
-import Sucess from "./src/screens/Sucess";
 import { NativeBaseProvider } from "native-base";
 
 import { StyleSheet, Platform, StatusBar, Dimensions } from "react-native";
 import InsertCard from "./src/screens/InsertCard";
 import CardInformation from "./src/screens/CardInformation";
+import Success from "./src/screens/Success";
+import Authentication from "./src/screens/Authentication";
 
 export const height = Dimensions.get("window").height;
 export const width = Dimensions.get("window").width;
@@ -44,18 +45,39 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
+              key={"checkout"}
               name="checkout"
               component={Checkout}
               options={{ headerShown: false }}
             ></Stack.Screen>
             <Stack.Screen
+              key={"insertCard"}
               name="insertCard"
               component={InsertCard}
               options={{ headerShown: false }}
             ></Stack.Screen>
             <Stack.Screen
+              key={"cardInformation"}
               name="cardInformation"
               component={CardInformation}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              key={"auth"}
+              name="auth"
+              component={Authentication}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              key={"success"}
+              name="success"
+              component={Success}
+              options={{ headerShown: false }}
+            ></Stack.Screen>
+            <Stack.Screen
+              key={"failed"}
+              name="failed"
+              component={Failed}
               options={{ headerShown: false }}
             ></Stack.Screen>
           </Stack.Navigator>
@@ -71,7 +93,7 @@ async function loadResourcesAsync() {
     Font.loadAsync({
       "josefinsans-medium": require("./src/assets/fonts/JosefinSans-Medium.ttf"),
       "josefinsans-regular": require("./src/assets/fonts/JosefinSans-Regular.ttf"),
-      "itim-regular": require("./src/assets/fonts/Itim-Regular.ttf"),
+      itim: require("./src/assets/fonts/Itim-Regular.ttf"),
     }),
   ]);
 }

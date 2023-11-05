@@ -78,29 +78,15 @@ function CardInformation({ navigation }) {
           onPress={() => navigation.navigate("insertCard")}
         >
           <Center flexDirection={"column"}>
-            <TextNB
-              fontSize={24}
-              fontWeight={"bold"}
-              color={"#4A4A4A"}
-              fontFamily={"itim-regular"}
-            >
-              Hủy
-            </TextNB>
+            <Text style={{ ...styles.textButton, color: "black" }}>Hủy</Text>
           </Center>
         </TouchableOpacity>
         <TouchableOpacity
           style={{ ...styles.insertButton, backgroundColor: "black" }}
-          onPress={() => navigation.navigate("insertCard")}
+          onPress={() => navigation.navigate("auth")}
         >
           <Center flexDirection={"column"}>
-            <TextNB
-              fontSize={24}
-              fontWeight={"bold"}
-              color={"white"}
-              fontFamily={"itim-regular"}
-            >
-              Tiếp tục
-            </TextNB>
+            <Text style={styles.textButton}>Tiếp tục</Text>
           </Center>
         </TouchableOpacity>
       </Box>
@@ -110,18 +96,18 @@ function CardInformation({ navigation }) {
 
 const styles = StyleSheet.create({
   textTotalAmount: {
-    fontFamily: "itim-regular",
+    fontFamily: "itim",
     fontSize: 18,
     fontWeight: "400",
   },
   textTitle: {
-    fontFamily: "itim-regular",
+    fontFamily: "itim",
     color: "#121212",
     fontSize: 30,
     marginTop: 30,
   },
   textHeader: {
-    fontFamily: "adamina-regular",
+    fontFamily: "itim",
     color: "#121212",
     marginLeft: 16,
     fontSize: 18,
@@ -133,6 +119,13 @@ const styles = StyleSheet.create({
   insertButton: {
     flex: 1,
     height: 50,
+    alignContent: "center",
+  },
+  textButton: {
+    fontSize: 24,
+    fontWeight: "bold",
+    fontFamily: "itim",
+    color: "white",
   },
 });
 

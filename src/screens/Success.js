@@ -1,12 +1,13 @@
-import { Box, Center, Text as TextNB } from "native-base";
+import { Box, Center } from "native-base";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
 import { globalStyles, height, width } from "../../App";
 import Divider from "../assets/images/divider.svg";
 import Logo from "../components/Logo";
-import FailedIcon from "../assets/images/fail-icon.svg";
+import SuccessIcon from "../assets/images/success-icon.svg";
+import DoubleArrowDown from "../assets/images/double-arrow-down.svg";
 
-function Failed({ navigation }) {
+function Success({ navigation }) {
   return (
     <SafeAreaView
       style={{
@@ -23,32 +24,28 @@ function Failed({ navigation }) {
           <Divider />
         </Center>
         <Center marginTop={8} width={width * 0.8}>
-          <Text style={styles.textHeader}>RẤT TIÊC THANH TOÁN ĐÃ THẤT BẠI</Text>
+          <Text style={styles.textHeader}>
+            HÓA ĐƠN CỦA BẠN ĐÃ ĐƯỢC THANH TOÁN THÀNH CÔNG
+          </Text>
           <Box marginTop={8}>
-            <FailedIcon />
+            <SuccessIcon />
           </Box>
           <Box marginTop={8}>
-            <Text style={styles.textDescrpition}>
-              VUI LÒNG THỬ LẠI HOẶC LIÊN HỆ VỚI CHUYÊN VIÊN
+            <Text style={styles.textHeader}>
+              CẢM ƠN BẠN ĐÃ MUA HÀNG Ở HADUM
             </Text>
+          </Box>
+          <Box marginTop={8}>
+            <Text style={styles.textDescrpition}>MÃ ĐƠN HÀNG: #231</Text>
           </Box>
         </Center>
       </Center>
-      <TouchableOpacity
-        style={styles.retryButton}
-        onPress={() => navigation.navigate("success")}
-      >
-        <Center flexDirection={"row"} h={"100%"}>
-          <TextNB
-            fontSize={24}
-            color={"white"}
-            fontWeight={"bold"}
-            style={globalStyles.textButton}
-          >
-            THỬ LẠI
-          </TextNB>
-        </Center>
-      </TouchableOpacity>
+      <Center w={width} marginBottom={5} position={"absolute"} bottom={0}>
+        <Text style={styles.textDescrpition}>VUI LÒNG KIỂM TRA HÓA ĐƠN</Text>
+        <Box marginTop={3}>
+          <DoubleArrowDown />
+        </Box>
+      </Center>
     </SafeAreaView>
   );
 }
@@ -77,13 +74,6 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     textAlign: "center",
   },
-  retryButton: {
-    backgroundColor: "black",
-    width: "105%",
-    height: 70,
-    position: "absolute",
-    bottom: 0,
-  },
 });
 
-export default Failed;
+export default Success;

@@ -80,18 +80,18 @@ function InsertCard({ navigation }) {
 
 const styles = StyleSheet.create({
   textTotalAmount: {
-    fontFamily: "itim-regular",
+    fontFamily: "itim",
     fontSize: 18,
     fontWeight: "400",
   },
   textTitle: {
-    fontFamily: "itim-regular",
+    fontFamily: "itim",
     color: "#121212",
     fontSize: 30,
     marginTop: 30,
   },
   textHeader: {
-    fontFamily: "adamina-regular",
+    fontFamily: "itim",
     color: "#121212",
     marginLeft: 16,
     fontSize: 18,

@@ -1,11 +1,9 @@
-import { Image } from "native-base";
+import { Box, Image } from "native-base";
+import LogoIcon from "../assets/images/logo.svg";
 
 const Logo = (props) => (
-  <Image
-    width={"140px"}
-    h={"40px"}
-    source={require("../assets/images/logo.png")}
-    alt="logo"
-  />
+  <Box marginTop={3}>
+    <LogoIcon />
+  </Box>
 );
 export default Logo;

@@ -1,13 +1,34 @@
 import { Center, HStack, Row, VStack } from "native-base";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 import { globalStyles, height, width } from "../../App";
 import Divider from "../assets/images/divider.svg";
 import Logo from "../components/Logo";
 import BlackPoint from "../assets/images/black-point.svg";
 import RoundNumberButton from "../components/RoundNumberButton";
+import * as LocalAuthentication from "expo-local-authentication";
 
 function Authentication({ navigation }) {
+  const [isBiometricSupported, setIsBiometricSupported] = useState(false);
+  useEffect(() => {
+    (async () => {
+      const compatible = await LocalAuthentication.hasHardwareAsync();
+      setIsBiometricSupported(compatible);
+      if (compatible) {
+        const biometricAuth = await LocalAuthentication.authenticateAsync({
+          promptMessage: "Xác thực vân tay",
+          disableDeviceFallback: true,
+          cancelLabel: "Nhập mã pin",
+          requireConfirmation: true,
+        });
+        if (biometricAuth?.success) {
+          navigation.navigate("success");
+        } else {
+          navigation.navigate("failed");
+        }
+      }
+    })();
+  }, []);
   return (
     <SafeAreaView
       style={{

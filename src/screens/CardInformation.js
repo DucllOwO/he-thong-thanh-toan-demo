@@ -69,7 +69,6 @@ function CardInformation({ navigation }) {
         display={"flex"}
         flexDirection={"row"}
         width={width}
-        alignContent={"space-between"}
         position={"absolute"}
         bottom={0}
       >
@@ -77,7 +76,7 @@ function CardInformation({ navigation }) {
           style={{ ...styles.insertButton, backgroundColor: "#4A4A4A33" }}
           onPress={() => navigation.navigate("insertCard")}
         >
-          <Center flexDirection={"column"}>
+          <Center height={"100%"} w={"100%"}>
             <Text style={{ ...styles.textButton, color: "black" }}>Hủy</Text>
           </Center>
         </TouchableOpacity>
@@ -85,7 +84,7 @@ function CardInformation({ navigation }) {
           style={{ ...styles.insertButton, backgroundColor: "black" }}
           onPress={() => navigation.navigate("auth")}
         >
-          <Center flexDirection={"column"}>
+          <Center height={"100%"} w={"100%"}>
             <Text style={styles.textButton}>Tiếp tục</Text>
           </Center>
         </TouchableOpacity>
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
     fontFamily: "itim",
     color: "#121212",
     fontSize: 30,
-    marginTop: 30,
+    marginTop: 5,
   },
   textHeader: {
     fontFamily: "itim",

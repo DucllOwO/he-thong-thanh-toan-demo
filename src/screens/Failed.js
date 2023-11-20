@@ -34,10 +34,7 @@ function Failed({ navigation }) {
           </Box>
         </Center>
       </Center>
-      <TouchableOpacity
-        style={styles.retryButton}
-        onPress={() => navigation.navigate("success")}
-      >
+      <TouchableOpacity style={styles.retryButton}>
         <Center flexDirection={"row"} h={"100%"}>
           <TextNB
             fontSize={24}
@@ -62,7 +59,7 @@ const styles = StyleSheet.create({
   textTitle: {
     fontFamily: "itim",
     fontSize: 30,
-    marginTop: 30,
+    marginTop: 5,
   },
   textHeader: {
     fontFamily: "josefinsans-medium",

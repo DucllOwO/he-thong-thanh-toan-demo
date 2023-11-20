@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   textTitle: {
     fontFamily: "itim",
     fontSize: 30,
-    marginTop: 30,
+    marginTop: 5,
   },
   textHeader: {
     fontFamily: "josefinsans-medium",

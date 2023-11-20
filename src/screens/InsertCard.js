@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontFamily: "itim",
     color: "#121212",
     fontSize: 30,
-    marginTop: 30,
+    marginTop: 5,
   },
   textHeader: {
     fontFamily: "itim",

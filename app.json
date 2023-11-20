@@ -14,14 +14,27 @@
       "fallbackToCacheTimeout": 0
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Allow $(PRODUCT_NAME) to use Face ID."
+      }
     },
     "plugins": [
       [
-        "expo-local-authentication", {
+        "expo-local-authentication",
+        {
           "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "9ce375f2-75c8-42f9-8e00-9084d9fc1ba2"
+      }
+    },
+    "owner": "nguyenduc147862",
+    "android": {
+      "package": "com.nguyenduc147862.BxProject"
+    }
   }
 }
